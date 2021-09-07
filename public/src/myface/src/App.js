@@ -1,11 +1,12 @@
 import './App.css';
-import { PostList } from './component/PostList';
+import { UserDetails } from './component/UserDetails';
+//import { PostList } from './component/PostList';
 
 function App() {
   return (
     <>
       <h1>Posts</h1>
-      <PostList/>
+      <UserDetails/>
     </>
   );
 }

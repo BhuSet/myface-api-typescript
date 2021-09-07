@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import moment from "moment";
 import './Posts.css'
 
 export function PrintPost(props){
@@ -14,15 +15,23 @@ export function PrintPost(props){
         </p>
         <img src = {props.post.imageUrl} alt="Loading Error" width ="300"/>{"\n"}
         <div class ="likes-dislikes">
-            <button onClick = {()=>{setLikes(likes + 1)}}>  
-                <img src = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/thumbs-up.png" alt = "Likes" width ="20"/>
-            </button> &nbsp; 
+            <button onClick = {()=>{setLikes(likes + 1)}}> 👍 </button> &nbsp; 
             {likes} &nbsp;&nbsp;
 
-            <button onClick = {()=>{setDislikes(dislikes + 1)}}>
-                <img src = "http://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/thumbs-down.png" alt = "Dislikes" width ="20"/>
-            </button> &nbsp;
-            {dislikes}<br/><br/>
+            <button onClick = {()=>{setDislikes(dislikes + 1)}}> 👎 </button> &nbsp;
+            {dislikes}
         </div>
     </li>
+}
+
+
+export function PrintUserPost(props){
+
+    return <li class = "user-post">
+                <img src = {props.post.imageUrl} alt={props.post.message}/>
+                <p >{props.post.id}</p>
+                <p >{moment(props.post.createdAt).format('DD/MM/YYYY')}</p>
+                <p >{props.post.message}</p>      
+            </li>
+        
 }
