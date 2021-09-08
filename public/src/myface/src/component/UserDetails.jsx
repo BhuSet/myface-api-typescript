@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { PrintUserPost } from "./Posts";
 import { UserInfo } from "./User";
 
@@ -37,25 +38,25 @@ import { UserInfo } from "./User";
 
 export function UserDetails(){
 
-    const [userid, setUserId] = useState(1);
+    const { userId } = useParams();
     const [user, setUserDetails] = useState();
     
     useEffect(() => {
-        fetch(`http://localhost:3001/users/${userid}`)
+        fetch(`http://localhost:3001/users/${userId}`)
         .then(response => response.json())
         .then(json => setUserDetails(json));
-    }, [userid]); 
+    }, [userId]);
 
     if(!user){
-        return <p>loaading error</p>
+        return <p>loading error</p>
     }
 
     return <div>
                 <UserInfo user={user}/>
-                <div class ="user-postlist">{user.posts.map((post)=> <PrintUserPost post={post}/>)}</div>
-                <div class ="user-postlist">{user.likes.map((post)=> <PrintUserPost post={post}/>)}</div>
-                <div class ="user-postlist">{user.dislikes.map((post)=> <PrintUserPost post={post}/>)}</div>
-                <button onClick = {()=>{setUserId(userid + 1)}}> Next User </button>
+                
+                <section class ="user-postlist">{user.posts.map((post)=> <PrintUserPost post={post}/>)}</section>
+                <section class ="user-postlist">{user.likes.map((post)=> <PrintUserPost post={post}/>)}</section>
+                <section class ="user-postlist">{user.dislikes.map((post)=> <PrintUserPost post={post}/>)}</section>
         </div>
 
 }

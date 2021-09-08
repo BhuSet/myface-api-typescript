@@ -29,9 +29,9 @@ export function PrintUserPost(props){
 
     return <li class = "user-post">
                 <img src = {props.post.imageUrl} alt={props.post.message}/>
-                <p >{props.post.id}</p>
-                <p >{moment(props.post.createdAt).format('DD/MM/YYYY')}</p>
-                <p >{props.post.message}</p>      
+                <p class ="userpage-post-text">{props.post.id}</p>
+                <p class ="userpage-post-text">{moment(props.post.createdAt).format('DD/MM/YYYY')}</p>
+                <p class ="userpage-post-text">{props.post.message}</p>      
             </li>
         
 }

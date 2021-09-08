@@ -1,22 +1,22 @@
 import './App.css';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { UserDetails } from './component/UserDetails';
 import { PostList } from './component/PostList';
+import { Header } from './component/Header';
 
 function App() {
   return (
   <main>
     <Router>
-      <MyFace to="/" label="Posts" />
-      <MyFace to="/users/1" label="Home" />
+      <Header />
 
       <hr />
-
+    
       <Switch>
-        <Route exact path="/">
+        <Route path="/posts">
           <PostList/>
         </Route>
-        <Route path="/users/1">
+        <Route path = "/users/:userId">
           <UserDetails/>
         </Route>
       </Switch>
@@ -26,13 +26,5 @@ function App() {
 }
 
 
-function MyFace({ label, to}) {
-  
 
-  return (
-    <div >
-      <Link to={to}>{label}</Link>
-    </div>
-  );
-}
 export default App;

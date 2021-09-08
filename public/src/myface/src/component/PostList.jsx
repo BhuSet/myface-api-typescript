@@ -6,7 +6,7 @@ export function PostList(){
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3001/posts")
+        fetch(`http://localhost:3001/posts`)
         .then(response => response.json())
         .then(json => setPosts(json.results));
     }, []);
