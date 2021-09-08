@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import './Posts.css'
+import './Posts.scss'
 
 export function PrintPost(props){
     const [likes, setLikes] = useState(props.post.likedBy.length);
@@ -9,11 +9,11 @@ export function PrintPost(props){
     return <li class = "post">
         <h2>{props.post.message}</h2>
         <p>
-            <span class ="time">Posted by </span>
+            <span class ="small-font">Posted by </span>
             {props.post.postedBy.name}   
-            <span class ="time">  {props.post.createdAt}  </span>
+            <span class ="small-font">  {props.post.createdAt}  </span>
         </p>
-        <img src = {props.post.imageUrl} alt="Loading Error" width ="300"/>{"\n"}
+        <img src = {props.post.imageUrl} alt="Loading Error"/>{"\n"}
         <div class ="likes-dislikes">
             <button onClick = {()=>{setLikes(likes + 1)}}> 👍 </button> &nbsp; 
             {likes} &nbsp;&nbsp;

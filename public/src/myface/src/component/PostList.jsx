@@ -11,7 +11,7 @@ export function PostList(){
         .then(json => setPosts(json.results));
     }, []);
     
-    return <>
+    return <section>
         <h1>Posts</h1>
         <ol>{
             posts.map((post, index) => {
@@ -19,6 +19,6 @@ export function PostList(){
             })
         }
         </ol>
-    </>
+    </section>
 
 }
