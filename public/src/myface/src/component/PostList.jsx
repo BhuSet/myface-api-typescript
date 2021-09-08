@@ -10,15 +10,15 @@ export function PostList(){
         .then(response => response.json())
         .then(json => setPosts(json.results));
     }, []);
-
-    //console.log(posts.length);
-
     
-    return <ol>{
+    return <>
+        <h1>Posts</h1>
+        <ol>{
             posts.map((post, index) => {
                 return <PrintPost post = {post} />     
             })
         }
-    </ol>
+        </ol>
+    </>
 
 }

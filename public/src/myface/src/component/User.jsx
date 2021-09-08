@@ -1,13 +1,13 @@
 import React from 'react';
 
-export function UserInfo({ userinfo }) {
+export function UserInfo({ user }) {
     return(
         <div>
-        <h2>{userinfo.name}</h2>
-        <img src={userinfo.coverImageUrl} alt="cover"/>
-        <img src={userinfo.profileImageUrl} alt="profile"/>
-        <p>{userinfo.username}</p>
-        <p>{userinfo.email}</p>
+        <h2>{user.name}</h2>
+        <img src={user.coverImageUrl} alt="cover"/>
+        <img src={user.profileImageUrl} alt="profile"/>
+        <p>{user.username}</p>
+        <p>{user.email}</p>
     </div>
     )
 }
